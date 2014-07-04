@@ -27,7 +27,7 @@ container.register("someGlobalData", { data: "hello" });
 var myClass = function(logger, someGlobalData) {
   /* use logger here */
 };
-myClass.$inject = ["logger", "someGlobalData";
+myClass.$inject = ["logger", "someGlobalData"];
 container.register("myClass", myClass);
 {% endhighlight %}
 1. Finally, get an instance to this class through the container:
