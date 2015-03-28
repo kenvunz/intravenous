@@ -120,7 +120,7 @@ exportSymbol('version', intravenous.version);
 					return i.instance;
 				}
 			}
-			
+
 			// If the singleton wasn't found, maybe it is available in the parent
 			if (this.parent) return this.parent.get(key);
 			else return null;
@@ -184,7 +184,7 @@ exportSymbol('version', intravenous.version);
 	var factoryInstance = function(container, key) {
 		this.container = container.create();
 		this.key = key;
-		
+
 		exportProperty(this, "dispose", this.dispose);
 		exportProperty(this, "get", this.get);
 		exportProperty(this, "use", this.use);
@@ -214,7 +214,7 @@ exportSymbol('version', intravenous.version);
 	var factory = function(container, key) {
 		this.container = container;
 		this.key = key;
-		
+
 		exportProperty(this, "dispose", this.dispose);
 		exportProperty(this, "get", this.get);
 		exportProperty(this, "use", this.use);
@@ -330,7 +330,7 @@ exportSymbol('version', intravenous.version);
 		// Lifecycle didn't have an instance, so we need to create it.
 		// If the registered value is a function we use it as a constructor.
 		// Otherwise, we simply return the registered value.
-		if (reg.value instanceof Function) {
+		if (reg.value instanceof Function && false !== reg.value.$constructor) {
 			// The registered value is a constructor, so we need to construct the object and inject all the dependencies.
 			var injections = reg.value["$inject"];
 			var resolvedInjections = [];
